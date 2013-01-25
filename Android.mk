@@ -49,6 +49,10 @@ ifeq ($(ARCH_ARM_HAVE_NEON),true)
         driver/rsdIntrinsics_Convolve.S
 endif
 
+ifeq ($(TARGET_BOARD_PLATFORM), imx5x)
+	LOCAL_CFLAGS += -DIMX5_RS_FIXUP
+endif
+
 LOCAL_SHARED_LIBRARIES += libRS
 LOCAL_SHARED_LIBRARIES += libcutils libutils libEGL libGLESv1_CM libGLESv2
 LOCAL_SHARED_LIBRARIES += libbcc libbcinfo libui libgui libsync
